@@ -88,3 +88,12 @@ li:hover .tooltiptext{
     opacity: 1;
     transition: 0.5s ease-in-out;
 }
+@media only screen and (max-device-width: 768px) {
+    :host{
+        width:100px;
+    }
+    .fa{
+        font-size: 25px;
+    }
+
+}

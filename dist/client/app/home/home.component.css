@@ -60,3 +60,11 @@ pdf-viewer{
     letter-spacing: 1px;
     color: #616161;
 }
+@media only screen and (max-device-width: 768px) {
+    .text-holder{
+        margin-right: 0px;
+        margin-left: -100px;
+        margin-top: 0px;
+    }
+
+}

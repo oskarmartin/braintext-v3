@@ -24,3 +24,9 @@
     margin-top: -41px;
     margin-left: 60px;
 }
+
+@media only screen and (max-device-width: 768px) {
+    .logo{
+        font-size: 37px;
+    }
+}
