@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "Coco-L";
+    src: url("fonts/CocoLight.ttf");
+}
+.logo{
+    font-size: 35px;
+    text-align: center;
+    font-family: "Coco-L";
+    position: relative;
+    margin: 0 auto;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    color: #616161;
+}
+
+.burger-holder{
+    margin-top: -45px;
+    margin-left: 20px;
+}
+
+.close-text{
+    font-size: 11px;
+    position: absolute;
+    margin-top: -41px;
+    margin-left: 60px;
+}

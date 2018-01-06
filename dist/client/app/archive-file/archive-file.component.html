@@ -1,0 +1,24 @@
+<div class="alert-box">
+    <h1 class="save-file-title">Archive your sentences</h1>
+
+    <div class="question-holder">
+        <label class="label--checkbox">
+          	<input type="checkbox" class="checkbox" [checked]="checkBoxStatus" (change)="changeCheckValue()">
+            <p class="question-text">
+                Would you like to add your name in front of the file?
+            </p>
+        </label>
+
+    </div>
+    <div class="form-item">
+		<input type="text" id="fileinput" [(ngModel)]="fileNamePlaceholder" #filename>
+	</div>
+    <div class="confirmation-container">
+        <div class="confirm">
+            <div class="confirm-icon" (click)="saveArchive()"></div>
+        </div>
+        <div class="close-container" (click)="closeSaveFileModal()">
+            <div class="close-icon"></div>
+        </div>
+    </div>
+</div>

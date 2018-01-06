@@ -1,0 +1,100 @@
+@font-face {
+    font-family: "Logo";
+    src: url("fonts/DaxRegular.ttf");
+}
+:host{
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: white;
+}
+.logo{
+    font-size: 35px;
+    text-align: center;
+    font-family: "Logo";
+    position: relative;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.user-name-text{
+   float: right;
+   font-weight: 400;
+   margin-top: 10px;
+   margin-left: 10px;
+
+}
+.burger-holder{
+    margin-top: -45px;
+    margin-left: 20px;
+}
+.braintext-logo{
+    color:white;
+    font-family: 'Roboto';
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+    font-size: 32px;
+    user-select: none;
+    margin-top: 5px;
+}
+.user-section{
+    position: absolute;
+    right: 10px;
+    padding-top:10px;
+}
+#user-dp{
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+}
+/*.hamburger{
+    display: block;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 96px;
+    height: 50px;
+    font-size: 0;
+    text-indent: -999999px;
+    cursor: pointer;
+    outline: none;
+    background: none;
+    border: 0;
+}
+.hamburger span{
+    display: block;
+    position: absolute;
+    top: 28px;
+    left: 30px;
+    right: 30px;
+    height: 2px;
+    background: white;
+}
+.hamburger span::before,
+.hamburger span::after {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  content: "";
+}
+
+.hamburger span::before {
+  top: -10px;
+}
+
+.hamburger span::after {
+  bottom: -10px;
+}*/
+.navbar-color{
+    background-color: #F64747 !important;
+    color: white;
+    border-radius: 0px !important;
+    border: 0;
+}
+nav{
+    z-index: 9999999;
+}

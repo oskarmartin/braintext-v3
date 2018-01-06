@@ -1,0 +1,76 @@
+<ul *ngIf="navMenu">
+    <li (click)="openHome()">
+        Home
+    </li>
+    <li (click)="showSource()">
+        Source files
+    </li>
+    <li (click)="showArchive()">
+        Archived Files
+    </li>
+    <li>
+        Data
+    </li>
+</ul>
+<div class="my-files" *ngIf="sourceFiles">
+    <button class="hamburger hamburger--arrow is-active" (click)="navigationBack('source')">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <h1 style="color:white">Source Files</h1>
+    <div class="doc-holder">
+        <!--<div class="upload-holder" (click)="file.click()">
+            <i class="fa fa-plus plus-file" aria-hidden="true"></i>
+            <input type="file"
+            #file
+            [multiple]="(maxFiles > 1)"
+            (change)="onFileChange($event)"
+            style="display:none">
+        </div>-->
+        <div class="holder" *ngFor="let chunk of nameArray" (click)="openFromSideMenu(chunk.databaseName)">
+            <i class="fa fa-file-pdf-o"></i>
+            <div class="name-holder">
+                <p class="filename" >{{chunk.originalName | sideMenuDoc}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="show-all-container">
+        <a class="show-all-text" (click)="changeNavigation('files')">Show all source files</a>
+    </div>
+</div>
+<div class="my-files" *ngIf="archiveFiles">
+    <button class="hamburger hamburger--arrow is-active" (click)="navigationBack('archive')">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <h1 style="color:white">Archived Files</h1>
+    <div class="doc-holder">
+        <!--<div class="upload-holder" (click)="file.click()">
+            <i class="fa fa-plus plus-file" aria-hidden="true"></i>
+            <input type="file"
+            #file
+            [multiple]="(maxFiles > 1)"
+            (change)="onFileChange($event)"
+            style="display:none">
+        </div>-->
+        <div class="holder" *ngFor="let chunk of archiveArray" (click)="openFromSideMenu(chunk.originalName)">
+            <i class="fa fa-file-pdf-o"></i>
+            <div class="name-holder">
+                <p class="filename" >{{chunk.originalName | sideMenuDoc}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="show-all-container">
+        <a class="show-all-text" (click)="changeNavigation('saved')">Show all archive files</a>
+    </div>
+</div>
+<div class="date-holder">
+    <p class="main-date">
+        {{currentDate | date: 'dd'}}
+    </p>
+    <p class="month-year">
+        {{currentDate | date: 'MMMM'}}, {{currentDate | date: 'yyyy'}}
+    </p>
+</div>

@@ -1,0 +1,7 @@
+<div class="save-container">
+    <i class="fa fa-floppy-o" aria-hidden="true" (click)="saveSentences()"></i>
+    <a class="save-text" (click)="saveSentences()">Archive your sentences</a>
+</div>
+<ul>
+    <li *ngFor="let item of archivedSentences" [@flyInOut]><i (click)="deleteSentence(item)" class="fa fa-minus delete-sentence" aria-hidden="true"></i>{{item}}</li>
+</ul>

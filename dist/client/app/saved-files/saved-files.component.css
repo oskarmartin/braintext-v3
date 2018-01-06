@@ -1,0 +1,48 @@
+@font-face {
+    font-family: "Coco-L";
+    src: url("fonts/CocoLight.ttf");
+}
+
+.files-margin{
+    margin-right: 200px;
+    margin-left: 200px;
+    margin-top: 50px;
+}
+.file-body{
+    height: 250px;
+    width: 200px;
+    border-radius: 2px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor: pointer;
+}
+.name-holder{
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    margin-top: 190px;
+    border-top: 1px solid #e0e0e0;
+    text-align: center;
+}
+.name-text{
+    font-family: "Roboto";
+    font-size: 11px;
+    margin-top: 20px;
+}
+.fa{
+    font-size: 50px;
+    position: absolute;
+    margin-left: -20px;
+    line-height: 180px;
+    color: #cb2c29;
+}
+.inner-title{
+    font-family: "Roboto";
+    margin-bottom: 25px;
+}
+.inner-title-text{
+    font-size: 14px;
+}

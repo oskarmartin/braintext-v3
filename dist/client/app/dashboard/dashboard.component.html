@@ -1,0 +1,17 @@
+<div>
+    <h1 class="logo">BrainText</h1>
+</div>
+<div class="burger-holder">
+    <button (click)="toggleMenu()" class="hamburger hamburger--arrow" [ngClass]="{'is-active': menuState === 'out'}" type="button">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <p class="close-text" *ngIf="menuState === 'out'">Close menu</p>
+</div>
+<side-menu [@slideInOut]="menuState" (offClick)="clickAway($event)"></side-menu>
+<editor-menu></editor-menu>
+<router-outlet></router-outlet>
+<archive-file *ngIf="saveFileActive"></archive-file>
+<alert *ngIf="saveFileAlert"></alert>
+<archive-confirmation *ngIf="confirmationActive"></archive-confirmation>

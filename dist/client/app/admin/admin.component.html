@@ -1,0 +1,24 @@
+<div>
+    <h2 *ngIf="currentUser">Hi {{currentUser.firstName}}</h2>
+    <h2 *ngIf="!currentUser">Hi Developer</h2>
+    <h3>Here are all registered users</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>Hashed Password</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user._id}}</td>
+                <td>{{user.username}}</td>
+                <td style="width: 100px;">{{user.password}}</td>
+                <td><a (click)="deleteUser(user.id)">Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p><a [routerLink]="['/login']">Logout</a></p>
+</div>

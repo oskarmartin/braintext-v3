@@ -1,0 +1,23 @@
+@font-face {
+    font-family: "Coco-L";
+    src: url("fonts/CocoLight.ttf");
+}
+
+.alert-container{
+    height: 50px;
+    width: 200px;
+    position: fixed;
+    right: 100px;
+    top: 25px;
+    padding: 15px;
+    z-index: 999999999999;
+    border-radius: 2px;
+    border: 1px solid #aab5ba;
+    border-left: 3px solid #adbb44;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 14px;
+    background: white;
+}

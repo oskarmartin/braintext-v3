@@ -1,0 +1,15 @@
+<div class="files-margin">
+    <div class="inner-title">
+        <p class="inner-title-text">
+            Source Files
+        </p>
+    </div>
+    <div class="file-body" *ngFor="let chunk of nameArray" (click)="openSourceFile(chunk.databaseName)">
+        <i class="fa fa-file-pdf-o"></i>
+        <div class="name-holder">
+            <p class="name-text">
+                {{chunk.originalName}}
+            </p>
+        </div>
+    </div>
+</div>

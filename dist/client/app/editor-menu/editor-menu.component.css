@@ -1,0 +1,90 @@
+@font-face {
+    font-family: "Coco-Light";
+    src: url("fonts/CocoLight.ttf");
+}
+@keyframes pulse {
+  from {
+    box-shadow: 0 0 0 0 red;
+  }
+  20% {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+}
+.sentence-alert{
+    display: block;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    margin-top: -5px;
+    margin-left: -10px;
+    border-radius: 45px;
+    background: red;
+    color: white;
+    font-family: Roboto;
+    font-size: 10px;
+    padding-left: 7px;
+    padding-top: 3px;
+    animation: pulse 5s infinite;
+
+}
+:host{
+    height: 100%;
+    display: block;
+    right: 0;
+    width: 75px;
+    background: white;
+    border-left: solid 1px #E6E8EB;
+    top: 0;
+    position: fixed;
+    z-index: 99999;
+}
+ul{
+    list-style: none;
+}
+li{
+    margin-left: -40px;
+    padding: 15px;
+    padding-left: 30px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+li:hover{
+    background-color: rgba(0, 126, 229, 0.1);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+}
+
+.tooltiptext{
+    visibility: hidden;
+    opacity: 0;
+    width: 100px;
+    background: #464c57;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 9999999;
+    right: 108%;
+    font-family: Roboto;
+    font-size: 11px;
+    transition: 0.5s ease-in-out;
+    font-family: "Coco-Light";
+
+}
+.tooltiptext::after{
+    content: " ";
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent transparent #464c57;
+
+}
+li:hover .tooltiptext{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s ease-in-out;
+}
