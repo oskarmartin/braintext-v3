@@ -13,6 +13,9 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var user_service_1 = require("../_services/user.service");
 var file_service_1 = require("../_services/file.service");
+//import { FileSaver } from "file-saver";
+//import * as FileSaver from 'file-saver';
+var file_saver_1 = require("file-saver");
 var SavedFilesComponent = /** @class */ (function () {
     function SavedFilesComponent(userService, fileService, router) {
         this.userService = userService;
@@ -30,16 +33,18 @@ var SavedFilesComponent = /** @class */ (function () {
         });
     };
     SavedFilesComponent.prototype.downloadFile = function (filename) {
-        var _this = this;
         console.log("filename -> ", filename);
         this.userService.downloadArchive(filename).subscribe(function (data) {
+            console.log("this is the data of file download");
             console.log(data);
-            _this.parseFile(data);
+            file_saver_1.saveAs(new Blob([data], { type: "application/pdf" }), "test.pdf");
         });
     };
     SavedFilesComponent.prototype.parseFile = function (data) {
-        var blob = new Blob([data], { type: 'text/csv' });
+        var blob = new Blob([data], { type: 'application/pdf' });
+        console.log(blob);
         var url = window.URL.createObjectURL(blob);
+        console.log(url);
         window.open(url);
     };
     SavedFilesComponent = __decorate([
@@ -57,4 +62,4 @@ var SavedFilesComponent = /** @class */ (function () {
 }());
 exports.SavedFilesComponent = SavedFilesComponent;
 
-//# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC9zYXZlZC1maWxlcy9zYXZlZC1maWxlcy5jb21wb25lbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7QUFBQSxzQ0FBa0Q7QUFDbEQsMENBQXlDO0FBRXpDLDBEQUF3RDtBQUN4RCwwREFBd0Q7QUFVeEQ7SUFFSSw2QkFDWSxXQUF3QixFQUN4QixXQUF3QixFQUN4QixNQUFjO1FBRmQsZ0JBQVcsR0FBWCxXQUFXLENBQWE7UUFDeEIsZ0JBQVcsR0FBWCxXQUFXLENBQWE7UUFDeEIsV0FBTSxHQUFOLE1BQU0sQ0FBUTtRQUoxQixvQkFBZSxHQUFRLEVBQUUsQ0FBQztJQUt2QixDQUFDO0lBRUosc0NBQVEsR0FBUjtRQUFBLGlCQU9DO1FBTkcsSUFBSSxFQUFFLEdBQVcsSUFBSSxDQUFDLEtBQUssQ0FBQyxZQUFZLENBQUMsT0FBTyxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUM7UUFDMUQsT0FBTyxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDO1FBQy9DLElBQUksQ0FBQyxXQUFXLENBQUMsa0JBQWtCLENBQUMsRUFBRSxDQUFDLENBQUMsU0FBUyxDQUFDLFVBQUEsSUFBSTtZQUNsRCxLQUFJLENBQUMsZUFBZSxHQUFHLElBQUksQ0FBQztZQUM1QixLQUFJLENBQUMsZUFBZSxDQUFDLE9BQU8sRUFBRSxDQUFDO1FBQ25DLENBQUMsQ0FBQyxDQUFDO0lBQ1AsQ0FBQztJQUVELDBDQUFZLEdBQVosVUFBYSxRQUFnQjtRQUE3QixpQkFPQztRQU5HLE9BQU8sQ0FBQyxHQUFHLENBQUMsY0FBYyxFQUFFLFFBQVEsQ0FBQyxDQUFDO1FBQ3RDLElBQUksQ0FBQyxXQUFXLENBQUMsZUFBZSxDQUFDLFFBQVEsQ0FBQyxDQUFDLFNBQVMsQ0FBQyxVQUFBLElBQUk7WUFDckQsT0FBTyxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsQ0FBQztZQUNsQixLQUFJLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFDO1FBQ3pCLENBQUMsQ0FBQyxDQUFBO0lBRU4sQ0FBQztJQUNELHVDQUFTLEdBQVQsVUFBVSxJQUFTO1FBQ2YsSUFBSSxJQUFJLEdBQUcsSUFBSSxJQUFJLENBQUMsQ0FBQyxJQUFJLENBQUMsRUFBRSxFQUFDLElBQUksRUFBRSxVQUFVLEVBQUMsQ0FBQyxDQUFDO1FBQ2hELElBQUksR0FBRyxHQUFHLE1BQU0sQ0FBQyxHQUFHLENBQUMsZUFBZSxDQUFDLElBQUksQ0FBQyxDQUFDO1FBQzNDLE1BQU0sQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUM7SUFDckIsQ0FBQztJQTdCUSxtQkFBbUI7UUFOL0IsZ0JBQVMsQ0FBQztZQUNQLFFBQVEsRUFBRSxNQUFNLENBQUMsRUFBRTtZQUNuQixRQUFRLEVBQUUsYUFBYTtZQUN2QixXQUFXLEVBQUUsNEJBQTRCO1lBQ3pDLFNBQVMsRUFBRSxDQUFDLDJCQUEyQixDQUFDO1NBQzNDLENBQUM7eUNBSTJCLDBCQUFXO1lBQ1gsMEJBQVc7WUFDaEIsZUFBTTtPQUxqQixtQkFBbUIsQ0E4Qi9CO0lBQUQsMEJBQUM7Q0E5QkQsQUE4QkMsSUFBQTtBQTlCWSxrREFBbUIiLCJmaWxlIjoiYXBwL3NhdmVkLWZpbGVzL3NhdmVkLWZpbGVzLmNvbXBvbmVudC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENvbXBvbmVudCwgT25Jbml0IH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQgeyBSb3V0ZXIgfSBmcm9tICdAYW5ndWxhci9yb3V0ZXInO1xuXG5pbXBvcnQgeyBVc2VyU2VydmljZSB9IGZyb20gXCIuLi9fc2VydmljZXMvdXNlci5zZXJ2aWNlXCI7XG5pbXBvcnQgeyBGaWxlU2VydmljZSB9IGZyb20gXCIuLi9fc2VydmljZXMvZmlsZS5zZXJ2aWNlXCI7XG5cblxuXG5AQ29tcG9uZW50KHtcbiAgICBtb2R1bGVJZDogbW9kdWxlLmlkLFxuICAgIHNlbGVjdG9yOiAnc2F2ZWQtZmlsZXMnLFxuICAgIHRlbXBsYXRlVXJsOiAnc2F2ZWQtZmlsZXMuY29tcG9uZW50Lmh0bWwnLFxuICAgIHN0eWxlVXJsczogWydzYXZlZC1maWxlcy5jb21wb25lbnQuY3NzJ11cbn0pXG5leHBvcnQgY2xhc3MgU2F2ZWRGaWxlc0NvbXBvbmVudCBpbXBsZW1lbnRzIE9uSW5pdCB7XG4gICAgc2F2ZWRGaWxlc0FycmF5OiBhbnkgPSBbXTtcbiAgICBjb25zdHJ1Y3RvcihcbiAgICAgICAgcHJpdmF0ZSB1c2VyU2VydmljZTogVXNlclNlcnZpY2UsXG4gICAgICAgIHByaXZhdGUgZmlsZVNlcnZpY2U6IEZpbGVTZXJ2aWNlLFxuICAgICAgICBwcml2YXRlIHJvdXRlcjogUm91dGVyLFxuICAgICkge31cblxuICAgIG5nT25Jbml0KCkge1xuICAgICAgICB2YXIgaWQ6IHN0cmluZyA9IEpTT04ucGFyc2UobG9jYWxTdG9yYWdlLmdldEl0ZW0oJ3VzZXInKSk7XG4gICAgICAgIGNvbnNvbGUubG9nKHRoaXMudXNlclNlcnZpY2UuZ2V0VXNlckZpbGVzKGlkKSk7XG4gICAgICAgIHRoaXMudXNlclNlcnZpY2UuZ2V0QWxsQXJjaGl2ZUZpbGVzKGlkKS5zdWJzY3JpYmUoZGF0YSA9PiB7XG4gICAgICAgICAgICB0aGlzLnNhdmVkRmlsZXNBcnJheSA9IGRhdGE7XG4gICAgICAgICAgICB0aGlzLnNhdmVkRmlsZXNBcnJheS5yZXZlcnNlKCk7XG4gICAgICAgIH0pO1xuICAgIH1cblxuICAgIGRvd25sb2FkRmlsZShmaWxlbmFtZTogc3RyaW5nKXtcbiAgICAgICAgY29uc29sZS5sb2coXCJmaWxlbmFtZSAtPiBcIiwgZmlsZW5hbWUpO1xuICAgICAgICB0aGlzLnVzZXJTZXJ2aWNlLmRvd25sb2FkQXJjaGl2ZShmaWxlbmFtZSkuc3Vic2NyaWJlKGRhdGEgPT4ge1xuICAgICAgICAgICAgY29uc29sZS5sb2coZGF0YSk7XG4gICAgICAgICAgICB0aGlzLnBhcnNlRmlsZShkYXRhKTtcbiAgICAgICAgfSlcblxuICAgIH1cbiAgICBwYXJzZUZpbGUoZGF0YTogYW55KXtcbiAgICAgICAgdmFyIGJsb2IgPSBuZXcgQmxvYihbZGF0YV0sIHt0eXBlOiAndGV4dC9jc3YnfSk7XG4gICAgICAgIHZhciB1cmwgPSB3aW5kb3cuVVJMLmNyZWF0ZU9iamVjdFVSTChibG9iKTtcbiAgICAgICAgd2luZG93Lm9wZW4odXJsKTtcbiAgICB9XG59XG4iXX0=
+//# sourceMappingURL=saved-files.component.js.map

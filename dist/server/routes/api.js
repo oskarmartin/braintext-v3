@@ -32,10 +32,11 @@ router.post('/download', function(req, res){
     console.log("downloadi initiated");
     console.log(req.body.fileName);
     var filePath = "/tmp/"+req.body.fileName;
-    fs.readFile(__dirname + filePath, function(err, data){
+    /*fs.readFile(__dirname + filePath, function(err, data){
         res.contentType("application/pdf");
         res.send(data);
-    })
+    })*/
+    res.download(__dirname + filePath);
     //var conn = mongoose.createConnection('localhost', 'braintext', 27017);
     //var gf = Gridfs(conn.db, mongoose.mongo);
     /*gf.findOne({

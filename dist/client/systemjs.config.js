@@ -17,7 +17,8 @@ var isPublic = typeof window != "undefined";
     '@angular/animations/browser':      (isPublic)? '@angular/animations/bundles/animations-browser.umd.js' : 'node_modules/@angular/animations/bundles/animations-browser.umd.js',
     'ng2-pdf-viewer':             'ng2-pdf-viewer',
     'pdfjs-dist':                 'pdfjs-dist',
-    'jwt-decode':                 'jwt-decode'
+    'jwt-decode':                 'jwt-decode',
+    'file-saver':                 (isPublic)? 'file-saver/FileSaver.js' : 'node_modules/file-saver/FileSaver.js',
 
 
     //'@angular/http/testing':      (isPublic)? '@angular/http/testing' : 'node_modules/@angular/http/testing'

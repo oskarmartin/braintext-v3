@@ -1,0 +1,1 @@
+{"version":3,"sources":["app/_models/user.ts"],"names":[],"mappings":";;AAAA;IAAA;IAOA,CAAC;IAAD,WAAC;AAAD,CAPA,AAOC,IAAA;AAPY,oBAAI","file":"user.js","sourcesContent":["export class User{\n    _id: string;\n    username: string;\n    password: string;\n    userFiles: string;\n    role: string;\n    email: string;\n}\n"]}
