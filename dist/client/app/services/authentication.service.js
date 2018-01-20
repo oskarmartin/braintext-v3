@@ -45,5 +45,4 @@ var authService = /** @class */ (function () {
     return authService;
 }());
 exports.authService = authService;
-
 //# sourceMappingURL=authentication.service.js.map
