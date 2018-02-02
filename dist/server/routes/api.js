@@ -27,7 +27,15 @@ var storage = multer.diskStorage({
 })
 
 var upload = multer({storage: storage});
-
+router.get('/test', function(req, res){
+    User.findOne({
+        _id: "5a4f8f6be05b397c87112fcb"
+    }, function(err, user){
+        if(err) res.json(err);
+        var filepath = __dirname+"/tmp/Oskar-Martin-UUS1516822351706.pdf";
+        res.json(filepath);
+    })
+})
 router.post('/download', function(req, res){
     console.log("downloadi initiated");
     console.log(req.body.fileName);
